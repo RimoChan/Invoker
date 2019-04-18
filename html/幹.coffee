@@ -1,0 +1,42 @@
+window.畫面 =
+    詞列: []
+    當前混淆: ['q','w','e']
+    正解位置: 0;
+    入詞: (單詞) ->
+        this.詞列.push(單詞)
+    入混淆: (混淆) ->
+        this.當前混淆 = 混淆
+    當前單詞: ->
+        this.詞列[-2..-2][0]
+    來: (單詞, 混淆)->
+        this.入詞(單詞)
+        this.入混淆(混淆)
+        this.更新畫面() 
+    更新畫面: ->
+        console.log this.當前混淆
+        s = ''
+        for i in this.詞列[-8..-3]
+            s+="<p><span class='單詞'>#{i.單詞}</span><br>#{i.意思}</p>"
+        for i in this.詞列[-2..]
+            s+="<p><span class='單詞'>#{i.單詞}</span></p>"
+        $('#單詞條').html(s)
+        
+        this.正解位置 = Math.ceil(Math.random() * 4)
+        j=0
+        for i in [1..4]
+            if i==this.正解位置
+                continue
+            $("#選項.#{i} > div").html(this.當前混淆[j])
+            console.log '位置',i,j,this.當前混淆[j]
+            j+=1
+        $("#選項.#{this.正解位置} > div").html(this.當前單詞().意思)
+    選擇: (x)->
+        if x==this.正解位置
+            山彥.下一題()
+$(->   
+    山彥.初始化();
+    $("#選項.#{1}").click(-> 畫面.選擇(1))
+    $("#選項.#{2}").click(-> 畫面.選擇(2))
+    $("#選項.#{3}").click(-> 畫面.選擇(3))
+    $("#選項.#{4}").click(-> 畫面.選擇(4))
+)

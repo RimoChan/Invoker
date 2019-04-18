@@ -1,0 +1,23 @@
+html:
+    head:
+        meta http-equiv="Content-Type" content="text/html; charset=utf-8";
+        link rel='stylesheet' href='樣式.css';
+        script src='jquery-3.1.1.min.js':
+        script src='幹.js':
+    body:
+      div#all:
+        div#bg:
+        div#單詞條:
+        div#選擇條:
+            div.1#選項:
+                div:
+                    1
+            div.2#選項:
+                div:
+                    2
+            div.3#選項:
+                div:
+                    3
+            div.4#選項:
+                div:
+                    4
