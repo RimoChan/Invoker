@@ -1,13 +1,23 @@
 html:
     head:
         meta http-equiv="Content-Type" content="text/html; charset=utf-8";
-        link rel='stylesheet' href='樣式.css';
+        link rel='stylesheet' href='./樣式.css';
+        link rel='stylesheet' href='./font-awesome-4.7.0/css/font-awesome.css';
         script src='jquery-3.1.1.min.js':
         script src='幹.js':
-    body:
+    body oncontextmenu='window.event.returnValue=false;':
       div#all:
         div#bg:
+        div.上:
+            <i class="fa fa-github" aria-hidden="true"></i>
+            Invoker
         div#單詞條:
+            p:
+                a
+            p:
+                b
+            p:
+                c
         div#選擇條:
             div.1#選項:
                 div:

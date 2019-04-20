@@ -17,8 +17,10 @@ window.畫面 =
         s = ''
         for i in this.詞列[-8..-3]
             s+="<p><span class='單詞'>#{i.單詞}</span><br>#{i.意思}</p>"
-        for i in this.詞列[-2..]
-            s+="<p><span class='單詞'>#{i.單詞}</span></p>"
+        for i in this.詞列[-2..-2]
+            s+="<p class='當前詞'><span class='單詞'>#{i.單詞}</span></p>"
+        for i in this.詞列[-1..-1]
+            s+="<p class='下個詞'><span class='單詞'>#{i.單詞}</span></p>"
         $('#單詞條').html(s)
         
         this.正解位置 = Math.ceil(Math.random() * 4)

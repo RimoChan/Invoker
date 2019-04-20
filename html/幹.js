@@ -19,7 +19,7 @@
       return this.更新畫面();
     },
     更新畫面: function() {
-      var i, j, k, l, len, len1, m, ref, ref1, s;
+      var i, j, k, l, len, len1, len2, m, n, ref, ref1, ref2, s;
       console.log(this.當前混淆);
       s = '';
       ref = this.詞列.slice(-8, -2);
@@ -27,15 +27,20 @@
         i = ref[k];
         s += `<p><span class='單詞'>${i.單詞}</span><br>${i.意思}</p>`;
       }
-      ref1 = this.詞列.slice(-2);
+      ref1 = this.詞列.slice(-2, -1);
       for (l = 0, len1 = ref1.length; l < len1; l++) {
         i = ref1[l];
-        s += `<p><span class='單詞'>${i.單詞}</span></p>`;
+        s += `<p class='當前詞'><span class='單詞'>${i.單詞}</span></p>`;
+      }
+      ref2 = this.詞列.slice(-1);
+      for (m = 0, len2 = ref2.length; m < len2; m++) {
+        i = ref2[m];
+        s += `<p class='下個詞'><span class='單詞'>${i.單詞}</span></p>`;
       }
       $('#單詞條').html(s);
       this.正解位置 = Math.ceil(Math.random() * 4);
       j = 0;
-      for (i = m = 1; m <= 4; i = ++m) {
+      for (i = n = 1; n <= 4; i = ++n) {
         if (i === this.正解位置) {
           continue;
         }
