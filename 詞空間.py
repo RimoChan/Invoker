@@ -8,7 +8,7 @@ import numpy as np
 
 class 詞空間:
     def __init__(self):
-        with open('./資料/考研5500詞彙.pkl', 'rb')as f:
+        with open('./詞典資料/考研5500詞彙.pkl', 'rb')as f:
             self.單詞表 = pickle.load(f)
 
     def 比對(self, x, y):

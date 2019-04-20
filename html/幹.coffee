@@ -1,5 +1,6 @@
 window.畫面 =
     詞列: []
+    切列: []
     當前混淆: ['q','w','e']
     正解位置: 0;
     入詞: (單詞) ->
@@ -12,11 +13,15 @@ window.畫面 =
         this.入詞(單詞)
         this.入混淆(混淆)
         this.更新畫面() 
+    切: (單詞)->
+        this.切列.push(單詞)
+        $('head').append("<style>.單詞--#{單詞}{opacity: 0.2 !important;}</style>")
+        山彥.切(單詞)
     更新畫面: ->
         console.log this.當前混淆
         s = ''
         for i in this.詞列[-8..-3]
-            s+="<p><span class='單詞'>#{i.單詞}</span><br>#{i.意思}</p>"
+            s+="<p class='之前詞 單詞--#{i.單詞}'><a href='javascript:畫面.切(\"#{i.單詞}\");'><i class='fa fa-low-vision'></i></a> <span class='單詞'>#{i.單詞}</span><br>#{i.意思}</p>"
         for i in this.詞列[-2..-2]
             s+="<p class='當前詞'><span class='單詞'>#{i.單詞}</span></p>"
         for i in this.詞列[-1..-1]
