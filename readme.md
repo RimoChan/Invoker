@@ -26,6 +26,16 @@ Invoker使用了word2vec模型抽取單詞。
 
 ![](./樣例.jpg)
 
+## 使用方法
+
+去 [github release](https://github.com/RimoChan/Invoker/releases) ，下載打包exe版本使用，很方便。
+
+如果你對exe有偏見，也可以: 
+    
+1. 安裝python3.6以上版本
+2. pip install wxpython cefpython3 numpy
+3. python3 invoker.py
+
 ## 關於命名
 
 祈求者Invoker是Dota2中的英雄，他是遠古時代最偉大的魔法使、記憶天賦最高的人。
