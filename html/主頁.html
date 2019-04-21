@@ -10,8 +10,24 @@
       <div id="all">
         <div id="bg"></div>
         <div class="上">
-            <i class="fa fa-github" aria-hidden="true"></i>
+            <i class="fa fa-github"></i>
             Invoker
+        </div>
+        <div class="左下">
+            <a href='javascript:畫面.單詞縮小()'>
+                <i class="fa fa-search-minus"></i>
+            </a>
+            <a href='javascript:畫面.單詞還原()'>
+                <i class="fa fa-search"></i>
+            </a>
+            <a href='javascript:山彥.切換全屏()'>
+                <i class="fa fa-arrows"></i>
+            </a>
+        </div>
+        <div class="右上">
+            <span id="時"></span>
+            <span>:</span>
+            <span id="分"></span>
         </div>
         <div id="單詞條">
             <p>
@@ -25,22 +41,22 @@
             </p>
         </div>
         <div id="選擇條">
-            <div class="1" id="選項">
+            <div class="1" id="選項" onclick='畫面.選擇(1);'>
                 <div>
                     1
                 </div>
             </div>
-            <div class="2" id="選項">
+            <div class="2" id="選項" onclick='畫面.選擇(2);'>
                 <div>
                     2
                 </div>
             </div>
-            <div class="3" id="選項">
+            <div class="3" id="選項" onclick='畫面.選擇(3);'>
                 <div>
                     3
                 </div>
             </div>
-            <div class="4" id="選項">
+            <div class="4" id="選項" onclick='畫面.選擇(4);'>
                 <div>
                     4
                 </div>

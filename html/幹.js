@@ -28,7 +28,7 @@
       var i, j, k, l, len, len1, len2, m, n, ref, ref1, ref2, s;
       console.log(this.當前混淆);
       s = '';
-      ref = this.詞列.slice(-8, -2);
+      ref = this.詞列.slice(-16, -2);
       for (k = 0, len = ref.length; k < len; k++) {
         i = ref[k];
         s += `<p class='之前詞 單詞--${i.單詞}'><a href='javascript:畫面.切("${i.單詞}");'><i class='fa fa-low-vision'></i></a> <span class='單詞'>${i.單詞}</span><br>${i.意思}</p>`;
@@ -60,23 +60,30 @@
       if (x === this.正解位置) {
         return 山彥.下一題();
       }
+    },
+    單詞縮小: function() {
+      return $("#單詞條").addClass('單詞縮小');
+    },
+    單詞還原: function() {
+      return $("#單詞條").removeClass("單詞縮小");
     }
   };
 
   $(function() {
+    var f;
     山彥.初始化();
-    $(`#選項.${1}`).click(function() {
-      return 畫面.選擇(1);
-    });
-    $(`#選項.${2}`).click(function() {
-      return 畫面.選擇(2);
-    });
-    $(`#選項.${3}`).click(function() {
-      return 畫面.選擇(3);
-    });
-    return $(`#選項.${4}`).click(function() {
-      return 畫面.選擇(4);
-    });
+    f = function() {
+      var d;
+      d = new Date();
+      $('#時').html(d.getHours());
+      if (d.getMinutes() >= 10) {
+        $('#分').html(d.getMinutes());
+      } else {
+        $('#分').html("0" + d.getMinutes());
+      }
+      return setTimeout(f, 1000);
+    };
+    return f();
   });
 
 }).call(this);

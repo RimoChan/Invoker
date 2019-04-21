@@ -9,8 +9,19 @@ html:
       div#all:
         div#bg:
         div.上:
-            <i class="fa fa-github" aria-hidden="true"></i>
+            i.fa.fa-github:
             Invoker
+        div.左下:
+            a href='javascript:畫面.單詞縮小()':
+                i.fa.fa-search-minus:
+            a href='javascript:畫面.單詞還原()':
+                i.fa.fa-search:
+            a href='javascript:山彥.切換全屏()':
+                i.fa.fa-arrows:
+        div.右上:
+            span#時:
+            <span>:</span>
+            span#分:
         div#單詞條:
             p:
                 a
@@ -19,15 +30,15 @@ html:
             p:
                 c
         div#選擇條:
-            div.1#選項:
+            div.1#選項 onclick='畫面.選擇(1);':
                 div:
                     1
-            div.2#選項:
+            div.2#選項 onclick='畫面.選擇(2);':
                 div:
                     2
-            div.3#選項:
+            div.3#選項 onclick='畫面.選擇(3);':
                 div:
                     3
-            div.4#選項:
+            div.4#選項 onclick='畫面.選擇(4);':
                 div:
                     4

@@ -36,7 +36,9 @@ class 山彥:
 
     def 切(self, 單詞):
         self.詞源.切(單詞)
-
+        
+    def 切換全屏(self):
+        self.窗口.toggleFullScreen()
 
 app, 瀏覽器 = wxcef.group(title='Invoker～祈求者～', url='file:///html/主頁.html', icon='./html/Invoke_icon.ico', size=(1366, 768))
 真山彥 = 山彥(app.frame)

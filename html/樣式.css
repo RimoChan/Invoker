@@ -10,6 +10,7 @@ body {
     font-size: 1.6vw;
     text-shadow: 1px 1px 5px #FFF, -1px -1px 5px #FFF;
     overflow: hidden;
+    -webkit-user-select: none;
 }
 
 div {
@@ -28,10 +29,22 @@ a {
 }
 
 .上 {
-    position: absolute;
+    position: fixed;
     top: 2%;
     left: 50%;
     transform: translate(-50%, 0);
+    opacity: 0.5;
+}
+.左下 {
+    position: fixed;
+    left: 2%; 
+    bottom: 2%;
+    opacity: 0.5;
+}
+.右上 {
+    position: fixed;
+    top: 2%;
+    right: 2%; 
     opacity: 0.5;
 }
 
@@ -81,12 +94,11 @@ a {
 }
 
 @keyframes 固化 {
-    from {
+    0% {
         opacity: 0.5;
     }
-
-    to {
-        opacity: 1;
+    100% { 
+        opacity: 1; 
         transform: scale(1.05);
     }
 }
@@ -97,7 +109,7 @@ a {
 }
 
 .當前詞 {
-    animation: 固化 1s;
+    animation: 固化 0.5s;
     animation-fill-mode: forwards;
 }
 
@@ -132,6 +144,17 @@ a {
     height: 12vh;
     opacity: 0.5;
 }
+
+@keyframes _單詞縮小 {
+    from {transform: scale(1);}
+    to {transform: scale(0.5);}
+}
+.單詞縮小 {
+    transform-origin: 50% 100%;
+    animation: _單詞縮小 0.6s;
+    animation-fill-mode: forwards;
+}
+
 
 #單詞條>p:nth-last-child(2) {
     opacity: 1;
