@@ -35,16 +35,18 @@ a {
     transform: translate(-50%, 0);
     opacity: 0.5;
 }
+
 .左下 {
     position: fixed;
-    left: 2%; 
+    left: 2%;
     bottom: 2%;
     opacity: 0.5;
 }
+
 .右上 {
     position: fixed;
     top: 2%;
-    right: 2%; 
+    right: 2%;
     opacity: 0.5;
 }
 
@@ -86,10 +88,12 @@ a {
 @keyframes 大化 {
     from {
         height: 0vh;
+        opacity: 0;
     }
 
     to {
         height: 12vh;
+        opacity: 0.5;
     }
 }
 
@@ -97,8 +101,9 @@ a {
     0% {
         opacity: 0.5;
     }
-    100% { 
-        opacity: 1; 
+
+    100% {
+        opacity: 1;
         transform: scale(1.05);
     }
 }
@@ -146,15 +151,20 @@ a {
 }
 
 @keyframes _單詞縮小 {
-    from {transform: scale(1);}
-    to {transform: scale(0.5);}
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.5);
+    }
 }
+
 .單詞縮小 {
     transform-origin: 50% 100%;
     animation: _單詞縮小 0.6s;
     animation-fill-mode: forwards;
 }
-
 
 #單詞條>p:nth-last-child(2) {
     opacity: 1;
@@ -183,13 +193,17 @@ a {
     margin: 4vh;
     height: 15vh;
     position: relative;
-    transition: filter 0.5s, box-shadow 0.5s;
+    transition: filter 0.5s, transform 0.1s;
 }
 
 #選項:hover {
     filter: hue-rotate(60deg);
-    box-shadow: 0px 0px 0.5vw;
-    transition: filter 0.1s, box-shadow 0.1s;
+    transition: filter 0.1s, transform 0.1s;
+}
+
+#選項:active {
+    transform: scale(0.99);
+    transition: filter 0.1s, transform 0s;
 }
 
 #選項>div {
