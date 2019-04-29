@@ -1,12 +1,14 @@
 # Invoker: 用word2vec背誦單詞！
 
-## 簡介
-
 在傳統的記單詞app中，往往使用簡單的隨機算法抽取單詞。  
 我覺得這很不科學，混亂的單詞順序會加重學習者的記憶負擔。
 
+Invoker是一個人工智能的單詞記憶app，使用先進的技術讓我如虎添翼！
+
 Invoker使用了word2vec模型抽取單詞。  
-使用Invoker，近義詞會儘可能連續出現，學習者具有很高的效率，可以在短時間內記憶大量單詞。
+在這裏，近義詞和反義詞會儘可能連續出現，我有很高的效率，可以在短時間內記憶大量單詞。
+
+![](./樣例.jpg)
 
 ## 對比
 
@@ -22,19 +24,15 @@ Invoker使用了word2vec模型抽取單詞。
 
 看起來word2vec抽取的有連續性，比較好背。
 
-## 使用截图
-
-![](./樣例.jpg)
-
 ## 使用方法
 
 去 [github release](https://github.com/RimoChan/Invoker/releases) ，下載打包exe版本使用，很方便。
 
 如果你對exe有偏見，也可以: 
-    
-1. 安裝python3.6以上版本
-2. pip install wxpython cefpython3 numpy
-3. python3 invoker.py
+
+1.  安裝python3.6以上版本
+2.  pip install wxpython cefpython3 numpy
+3.  python3 invoker.py
 
 ## 關於命名
 
