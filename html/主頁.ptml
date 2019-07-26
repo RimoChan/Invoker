@@ -4,8 +4,10 @@ html:
         link rel='stylesheet' href='./樣式.css';
         link rel='stylesheet' href='./font-awesome-4.7.0/css/font-awesome.css';
         script src='jquery-3.1.1.min.js':
+        script src='vue.js':
+        script src='琴.js':
         script src='幹.js':
-    body oncontextmenu='window.event.returnValue=false;':
+    body oncontextmenu='window.event.returnValue=false;': 
       div#all:
         div#bg:
         div.上:
@@ -18,17 +20,16 @@ html:
                 i.fa.fa-search:
             a href='javascript:山彥.切換全屏()':
                 i.fa.fa-arrows:
+            a href='javascript:畫面.靜音=!畫面.靜音':
+                span v-if="畫面.靜音":
+                    i.fa.fa-volume-off:
+                span v-else:
+                    i.fa.fa-volume-up:
         div.右上:
             span#時:
             <span>:</span>
             span#分:
         div#單詞條:
-            p:
-                a
-            p:
-                b
-            p:
-                c
         div#選擇條:
             div.1#選項 onclick='畫面.選擇(1);':
                 div:

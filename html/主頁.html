@@ -4,9 +4,11 @@
         <link rel='stylesheet' href='./樣式.css'/>
         <link rel='stylesheet' href='./font-awesome-4.7.0/css/font-awesome.css'/>
         <script src='jquery-3.1.1.min.js'></script>
+        <script src='vue.js'></script>
+        <script src='琴.js'></script>
         <script src='幹.js'></script>
     </head>
-    <body oncontextmenu='window.event.returnValue=false;'>
+    <body>
       <div id="all">
         <div id="bg"></div>
         <div class="上">
@@ -23,23 +25,21 @@
             <a href='javascript:山彥.切換全屏()'>
                 <i class="fa fa-arrows"></i>
             </a>
+            <a href='javascript:畫面.靜音=!畫面.靜音'>
+                <span v-if="畫面.靜音">
+                    <i class="fa fa-volume-off"></i>
+                </span>
+                <span v-else>
+                    <i class="fa fa-volume-up"></i>
+                </span>
+            </a>
         </div>
         <div class="右上">
             <span id="時"></span>
             <span>:</span>
             <span id="分"></span>
         </div>
-        <div id="單詞條">
-            <p>
-                a
-            </p>
-            <p>
-                b
-            </p>
-            <p>
-                c
-            </p>
-        </div>
+        <div id="單詞條"></div>
         <div id="選擇條">
             <div class="1" id="選項" onclick='畫面.選擇(1);'>
                 <div>

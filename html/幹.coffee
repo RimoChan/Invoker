@@ -2,7 +2,8 @@ window.畫面 =
     詞列: []
     切列: []
     當前混淆: ['q','w','e']
-    正解位置: 0;
+    正解位置: 0
+    靜音: false
     入詞: (單詞) ->
         this.詞列.push(單詞)
     入混淆: (混淆) ->
@@ -39,22 +40,34 @@ window.畫面 =
         $("#選項.#{this.正解位置} > div").html(this.當前單詞().意思)
     選擇: (x) ->
         if x == this.正解位置
+            if !this.靜音
+                琴.叮()
             山彥.下一題()
+        else
+            if !this.靜音
+                琴.連彈([7, 6, 5, 4, 3, 2, 1], 0.18, 25)
 
     單詞縮小: ->
-        $("#單詞條").addClass('單詞縮小')
+        $("#單詞條").addClass('縮小')
     單詞還原: ->
-        $("#單詞條").removeClass("單詞縮小")
+        $("#單詞條").removeClass("縮小")
+
 
 $(->
     山彥.初始化()
     f = ->
         d = new Date()
         $('#時').html(d.getHours())
-        if d.getMinutes()>=10
+        if d.getMinutes() >= 10
             $('#分').html(d.getMinutes())
         else
             $('#分').html("0"+d.getMinutes())
-        setTimeout(f,1000)
+        setTimeout(f, 1000)
     f()
+    all = new Vue(
+        el: '#all',
+        data: {
+            畫面: 畫面
+        }
+    )
 )
