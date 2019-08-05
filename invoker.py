@@ -40,7 +40,7 @@ class 山彥:
     def 切換全屏(self):
         self.窗口.toggleFullScreen()
 
-app, 瀏覽器 = wxcef.group(title='Invoker～祈求者～', url='file:///html/主頁.html', icon='./html/Invoke_icon.ico', size=(1366, 768))
+app, 瀏覽器 = wxcef.group(title='Invoker', url='file:///html/主頁.html', icon='./html/Invoke_icon.ico', size=(1366, 768))
 真山彥 = 山彥(app.frame)
 app.frame.set_browser_object("山彥", 真山彥)
 app.MainLoop()
