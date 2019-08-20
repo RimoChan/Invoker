@@ -1,0 +1,20 @@
+{
+    "word": {
+        "意思": "n.词，词语；言语，话；谈话；消息，信息",
+        "向量": array([1.33147e-01, 1.53770e-02, 3.34680e-02, 2.02620e-0, ...]),
+        "ecdict信息": {
+            "phonetic": "wә:d",
+            "definition": "n. a unit of language that native speakers can identify\\nn. a brief statement\\nn. a verbal command for action\\nn. a word is a string of bits stored in computer memory",
+            "translation": "n. 话, 消息, 词, 诺言, 命令\\nvt. 用言辞表达\\n[计] 字",
+            "pos": "",
+            "collins": "5",
+            "oxford": "1",
+            "tag": "zk gk",
+            "bnc": "196",
+            "frq": "244",
+            "exchange": "s:words/d:worded/i:wording/p:worded/3:words",
+            "detail": "",
+            "audio": ""
+        }
+    }
+}
