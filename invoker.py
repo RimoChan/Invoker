@@ -16,7 +16,6 @@ class 山彥:
         self.詞鏈 = self.詞源.線程造鏈('abandon')
 
     def 初始化(self):
-        單詞 = next(self.詞鏈)
         js(f'''
         畫面.入詞({json.dumps(next(self.詞鏈))});
         畫面.來(
@@ -26,7 +25,6 @@ class 山彥:
         )
 
     def 下一題(self):
-        單詞 = next(self.詞鏈)
         js(f'''
         畫面.來(
             {json.dumps(next(self.詞鏈))},

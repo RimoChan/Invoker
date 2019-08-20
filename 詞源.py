@@ -1,6 +1,7 @@
 import os
 import json
 import random
+import logging
 
 import 詞空間
 
@@ -16,7 +17,10 @@ class 詞源(詞空間.詞空間):
         super().__init__()
 
         for 單詞 in self.切詞表:
-            del self.單詞表[單詞]
+            if 單詞 in self.單詞表:
+                del self.單詞表[單詞]
+            else:
+                logging.warning(f'單詞表沒有「{單詞}」')
 
     def 切(self, 單詞):
         self.切詞表.append(單詞)
