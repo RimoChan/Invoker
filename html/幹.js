@@ -32,7 +32,7 @@
       ref = this.詞列.slice(-16, -2);
       for (k = 0, len = ref.length; k < len; k++) {
         i = ref[k];
-        s += `<p class='之前詞 單詞--${i.單詞}'><a href='javascript:畫面.切("${i.單詞}");'><i class='fa fa-low-vision'></i></a> <span class='單詞'>${i.單詞}</span><br>${i.意思}</p>`;
+        s += `<p class='之前詞 單詞--${i.單詞}'>\n    <a href='javascript:畫面.切("${i.單詞}");'>\n        <i class='fa fa-low-vision'></i>\n    </a> \n    <span class='單詞'>${i.單詞}</span>\n    <br/>\n    <span class='單詞信息'>\n        <span class='例句'>\n            ${i.信息.例句[0]}\n            <br/>\n            ${i.信息.例句[1]}\n        </span>\n        <span class='意思'>\n            ${i.信息.意思}\n        </span>\n    </span>\n</p>`;
       }
       ref1 = this.詞列.slice(-2, -1);
       for (l = 0, len1 = ref1.length; l < len1; l++) {
@@ -55,7 +55,7 @@
         console.log('位置', i, j, this.當前混淆[j]);
         j += 1;
       }
-      return $(`#選項.${this.正解位置} > div`).html(this.當前單詞().意思);
+      return $(`#選項.${this.正解位置} > div`).html(this.當前單詞().信息.意思);
     },
     選擇: function(x) {
       if (x === this.正解位置) {
@@ -78,8 +78,7 @@
   };
 
   $(function() {
-    var all, f;
-    山彥.初始化();
+    var f;
     f = function() {
       var d;
       d = new Date();
@@ -92,12 +91,30 @@
       return setTimeout(f, 1000);
     };
     f();
-    return all = new Vue({
+    window.v = new Vue({
       el: '#all',
       data: {
         畫面: 畫面
+      },
+      watch: {
+        $data: {
+          handler: function(val, oldVal) {
+            return 山彥.vue更新(val);
+          },
+          deep: true
+        }
       }
     });
+    山彥.vue連接初始化(function(x) {
+      var a, b, results;
+      results = [];
+      for (a in x) {
+        b = x[a];
+        results.push(v[a] = b);
+      }
+      return results;
+    });
+    return 山彥.初始化();
   });
 
 }).call(this);

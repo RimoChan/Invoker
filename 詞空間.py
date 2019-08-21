@@ -1,7 +1,5 @@
 import pickle
 import copy
-import threading
-import time
 
 import numpy as np
 
@@ -36,6 +34,11 @@ class 詞空間:
         return min(單詞假表,
                    key=lambda i: self.比對(i, x))
 
+    def 單詞信息(self, 單詞):
+        t = copy.copy(self.單詞表[單詞])
+        del t['向量']
+        return t
+
     def 造鏈(self, x):
         單詞假表 = copy.copy(self.單詞表)
         del 單詞假表[x]
@@ -43,28 +46,8 @@ class 詞空間:
             這個 = max(單詞假表,
                      key=lambda i: self.比對(i, x))
             del 單詞假表[這個]
-            yield {'單詞': 這個, '意思': self.單詞表[這個]['意思'], '轉移相似': self.比對(x, 這個)}
+            yield {'單詞': 這個, '信息': self.單詞信息(這個), '轉移相似': self.比對(x, 這個)}
             x = 這個
-
-    def 線程造鏈(self, x):
-        緩衝區 = []
-
-        def 線程():
-            f = self.造鏈(x)
-            while True:
-                if len(緩衝區) < 3:
-                    緩衝區.append(next(f))
-                else:
-                    time.sleep(0.1)
-
-        t = threading.Thread(target=線程)
-        t.setDaemon(True)
-        t.start()
-        while True:
-            if 緩衝區:
-                yield 緩衝區.pop(0)
-            else:
-                time.sleep(0.1)
 
 
 if __name__ == '__main__':
@@ -79,11 +62,11 @@ if __name__ == '__main__':
     #     c = l[r]
     #     print(c,t.意思(c))
 
-    鏈 = t.線程造鏈('abandon')
+    鏈 = t.造鏈('abandon')
     for i in range(50):
         詞 = next(鏈)
         print('')
-        print(詞['單詞'], 詞['意思'])
+        print(詞['單詞'], 詞['信息'])
 
     # import tqdm
     # with open('鏈1000.txt','w',encoding='utf8') as f:

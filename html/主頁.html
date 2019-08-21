@@ -8,7 +8,7 @@
         <script src='琴.js'></script>
         <script src='幹.js'></script>
     </head>
-    <body>
+    <body oncontextmenu='window.event.returnValue=false;'>
       <div id="all">
         <div id="bg"></div>
         <div class="上">
@@ -26,7 +26,7 @@
                 <i class="fa fa-arrows"></i>
             </a>
             <a href='javascript:畫面.靜音=!畫面.靜音'>
-                <span v-if="畫面.靜音">
+                <span v-if='畫面.靜音'>
                     <i class="fa fa-volume-off"></i>
                 </span>
                 <span v-else>

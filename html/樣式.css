@@ -50,6 +50,33 @@ a {
     opacity: 0.5;
 }
 
+.單詞信息 {
+    display: flex; 
+    justify-content: center;
+}
+
+
+.單詞信息>.意思 {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.單詞信息:hover>.意思 {
+    opacity: 1;
+}
+
+.單詞信息>.例句 {
+    white-space:nowrap;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.單詞信息:hover>.例句 {
+    opacity: 0;
+}
+
 #bg {
     background: url('紙背景花紋.jpg');
     background-size: cover;
@@ -79,10 +106,12 @@ a {
     0% {
         filter: brightness(2) saturate(0);
     }
+
     50% {
         filter: none;
         box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0) inset;
     }
+
     100% {
         box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.4) inset;
     }
@@ -95,7 +124,7 @@ a {
     }
 
     to {
-        height: 12vh;
+        height: 14vh;
         opacity: 0.5;
     }
 }
@@ -147,16 +176,14 @@ a {
     position: absolute;
     left: 5%;
     bottom: 25%;
-    
     transform-origin: 50% 100%;
     transition: transform 0.6s;
 }
 
 #單詞條>p {
-    height: 12vh;
+    height: 14vh;
     opacity: 0.5;
 }
-
 
 .縮小 {
     transform: scale(0.5);
@@ -167,7 +194,7 @@ a {
 }
 
 .單詞 {
-    font-size: 250%;
+    font-size: 225%;
 }
 
 #選擇條 {

@@ -21,7 +21,7 @@ html:
             a href='javascript:山彥.切換全屏()':
                 i.fa.fa-arrows:
             a href='javascript:畫面.靜音=!畫面.靜音':
-                span v-if="畫面.靜音":
+                span v-if='畫面.靜音':
                     i.fa.fa-volume-off:
                 span v-else:
                     i.fa.fa-volume-up:

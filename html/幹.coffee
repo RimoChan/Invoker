@@ -22,7 +22,25 @@ window.畫面 =
         console.log this.當前混淆
         s = ''
         for i in this.詞列[ - 16.. - 3]
-            s += "<p class='之前詞 單詞--#{i.單詞}'><a href='javascript:畫面.切(\"#{i.單詞}\");'><i class='fa fa-low-vision'></i></a> <span class='單詞'>#{i.單詞}</span><br>#{i.意思}</p>"
+            s += """
+                <p class='之前詞 單詞--#{i.單詞}'>
+                    <a href='javascript:畫面.切(\"#{i.單詞}\");'>
+                        <i class='fa fa-low-vision'></i>
+                    </a> 
+                    <span class='單詞'>#{i.單詞}</span>
+                    <br/>
+                    <span class='單詞信息'>
+                        <span class='例句'>
+                            #{i.信息.例句[0]}
+                            <br/>
+                            #{i.信息.例句[1]}
+                        </span>
+                        <span class='意思'>
+                            #{i.信息.意思}
+                        </span>
+                    </span>
+                </p>
+            """
         for i in this.詞列[ - 2.. - 2]
             s += "<p class='當前詞'><span class='單詞'>#{i.單詞}</span></p>"
         for i in this.詞列[ - 1.. - 1]
@@ -37,7 +55,7 @@ window.畫面 =
             $("#選項.#{i} > div").html(this.當前混淆[j])
             console.log '位置', i, j, this.當前混淆[j]
             j += 1
-        $("#選項.#{this.正解位置} > div").html(this.當前單詞().意思)
+        $("#選項.#{this.正解位置} > div").html(this.當前單詞().信息.意思)
     選擇: (x) ->
         if x == this.正解位置
             if !this.靜音
@@ -54,7 +72,6 @@ window.畫面 =
 
 
 $(->
-    山彥.初始化()
     f = ->
         d = new Date()
         $('#時').html(d.getHours())
@@ -64,10 +81,19 @@ $(->
             $('#分').html("0"+d.getMinutes())
         setTimeout(f, 1000)
     f()
-    all = new Vue(
-        el: '#all',
-        data: {
+    
+    window.v = new Vue
+        el: '#all'
+        data:
             畫面: 畫面
-        }
+        watch:
+            $data:
+                handler: (val, oldVal) ->
+                    山彥.vue更新(val)
+                deep: true
+    山彥.vue連接初始化((x)-> 
+        for a,b of x
+            v[a]=b
     )
+    山彥.初始化()
 )
