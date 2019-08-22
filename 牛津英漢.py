@@ -35,7 +35,7 @@ def 全部例句(單詞):
 def 選取例句(單詞, 字數控制=60):
     例句組 = 全部例句(單詞)
     if not 例句組:
-        return None
+        return ['(no example sentence)', '(並沒有例句)']
         
     參考長度 = lambda x: len(re.sub('<.*?>', '', x[0]))
     
@@ -45,5 +45,3 @@ def 選取例句(單詞, 字數控制=60):
 
     有效例句組 = [例句 for 例句 in 例句組 if 參考長度(例句) <= 字數控制]
     return random.choice(有效例句組)
-
-
