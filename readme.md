@@ -1,4 +1,4 @@
-# Invoker: 用word2vec背誦單詞！
+# ![./圖標/invoker_small.ico](./圖標/invoker_small.ico) Invoker: 用word2vec背誦單詞！
 
 在傳統的記單詞app中，往往使用簡單的隨機算法抽取單詞。  
 我覺得這很不科學，混亂的單詞順序會加重學習者的記憶負擔。
