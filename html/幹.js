@@ -32,12 +32,12 @@
       ref = this.詞列.slice(-16, -2);
       for (k = 0, len = ref.length; k < len; k++) {
         i = ref[k];
-        s += `<p class='之前詞 單詞--${i.單詞}'>\n    <a href='javascript:畫面.切("${i.單詞}");'>\n        <i class='fa fa-low-vision'></i>\n    </a> \n    <span class='單詞'>${i.單詞}</span>\n    <br/>\n    <span class='單詞信息'>\n        <span class='例句'>\n            ${i.信息.例句[0]}\n            <br/>\n            ${i.信息.例句[1]}\n        </span>\n        <span class='意思'>\n            ${i.信息.意思}\n        </span>\n    </span>\n</p>`;
+        s += `<p class='之前詞 單詞--${i.單詞}'>\n    <a href='javascript:畫面.切("${i.單詞}");'>\n        <i class='fa fa-low-vision'></i>\n    </a> \n    <span class='單詞'>${i.單詞}</span>\n    <span class='詞頻 太陽交換'>\n        <span class='對數'>\n            ${Math.max(1, Math.floor(Math.log(i.信息.ecdict信息.frq)) - 4)}\n        </span>\n        <span class='數'>\n            詞頻順序: ${i.信息.ecdict信息.frq}\n        </span>\n    </span>\n    <br/>\n    <span class='單詞信息 太陽交換'>\n        <span class='例句'>\n            ${i.信息.例句[1]}\n            <br/>\n            ${i.信息.例句[0]}\n        </span>\n        <span class='意思'>\n            ${i.信息.意思}\n        </span>\n    </span>\n</p>`;
       }
       ref1 = this.詞列.slice(-2, -1);
       for (l = 0, len1 = ref1.length; l < len1; l++) {
         i = ref1[l];
-        s += `<p class='當前詞'><span class='單詞'>${i.單詞}</span></p>`;
+        s += `<p class='當前詞 太陽交換'>\n    <span class='單詞'>\n        ${i.單詞}\n    </span>\n    <span class='例句'>\n        ${i.信息.例句[0]}\n    </span>\n</p>`;
       }
       ref2 = this.詞列.slice(-1);
       for (m = 0, len2 = ref2.length; m < len2; m++) {

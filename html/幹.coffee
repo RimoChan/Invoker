@@ -28,12 +28,20 @@ window.畫面 =
                         <i class='fa fa-low-vision'></i>
                     </a> 
                     <span class='單詞'>#{i.單詞}</span>
+                    <span class='詞頻 太陽交換'>
+                        <span class='對數'>
+                            #{Math.max(1, Math.floor(Math.log(i.信息.ecdict信息.frq))-4)}
+                        </span>
+                        <span class='數'>
+                            詞頻順序: #{i.信息.ecdict信息.frq}
+                        </span>
+                    </span>
                     <br/>
-                    <span class='單詞信息'>
+                    <span class='單詞信息 太陽交換'>
                         <span class='例句'>
-                            #{i.信息.例句[0]}
-                            <br/>
                             #{i.信息.例句[1]}
+                            <br/>
+                            #{i.信息.例句[0]}
                         </span>
                         <span class='意思'>
                             #{i.信息.意思}
@@ -42,7 +50,16 @@ window.畫面 =
                 </p>
             """
         for i in this.詞列[ - 2.. - 2]
-            s += "<p class='當前詞'><span class='單詞'>#{i.單詞}</span></p>"
+            s += """
+                <p class='當前詞 太陽交換'>
+                    <span class='單詞'>
+                        #{i.單詞}
+                    </span>
+                    <span class='例句'>
+                        #{i.信息.例句[0]}
+                    </span>
+                </p>
+            """
         for i in this.詞列[ - 1.. - 1]
             s += "<p class='下個詞'><span class='單詞'>#{i.單詞}</span></p>"
         $('#單詞條').html(s)

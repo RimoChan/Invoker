@@ -7,7 +7,7 @@ html:
         script src='vue.js':
         script src='琴.js':
         script src='幹.js':
-    body oncontextmenu='window.event.returnValue=false;': 
+    body: 
       div#all:
         div#bg:
         div.上:
