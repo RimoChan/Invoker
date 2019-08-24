@@ -44,6 +44,9 @@ a {
 }
 
 .右上 {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
     position: fixed;
     top: 2%;
     right: 2%;
@@ -149,6 +152,9 @@ a {
 }
 
 .下個詞 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: 大化 0.5s;
     animation-fill-mode: forwards;
 }

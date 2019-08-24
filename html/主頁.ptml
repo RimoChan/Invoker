@@ -26,9 +26,18 @@ html:
                 span v-else:
                     i.fa.fa-volume-up:
         div.右上:
-            span#時:
-            <span>:</span>
-            span#分:
+            div:
+                i.fa.fa-clock-o:
+                span#時:
+                <span>:</span>
+                span#分:
+            div:
+                i.fa.fa-bar-chart:
+                {{已選長度}}:{{詞典長度}} ({{Math.floor(已選長度/詞典長度*100)}}%)
+            div:
+                i.fa.fa-low-vision:
+                {{切表長度}}
+            
         div#單詞條:
         div#選擇條:
             div.1#選項 onclick='畫面.選擇(1);':

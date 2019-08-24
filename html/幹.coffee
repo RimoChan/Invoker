@@ -75,6 +75,7 @@ window.畫面 =
         $("#選項.#{this.正解位置} > div").html(this.當前單詞().信息.意思)
     選擇: (x) ->
         if x == this.正解位置
+            v.已選長度+=1
             if !this.靜音
                 琴.叮()
             山彥.下一題()
@@ -103,6 +104,9 @@ $(->
         el: '#all'
         data:
             畫面: 畫面
+            詞典長度: 0
+            切表長度: 0
+            已選長度: 0
         watch:
             $data:
                 handler: (val, oldVal) ->

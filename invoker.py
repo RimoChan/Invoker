@@ -14,6 +14,8 @@ class 山彥(帶有vue的山彥.帶有vue的山彥):
     def __init__(self, 窗口):
         super().__init__(窗口)
         self.詞源 = 詞源.詞源()
+        self.vue.詞典長度 = len(self.詞源.單詞表)
+        self.vue.切表長度 = len(self.詞源.切詞表)
         self.詞鏈 = self.詞源.線程造鏈('abandon')
 
     def 初始化(self):
@@ -35,6 +37,7 @@ class 山彥(帶有vue的山彥.帶有vue的山彥):
 
     def 切(self, 單詞):
         self.詞源.切(單詞)
+        self.vue.切表長度 = len(self.詞源.切詞表)
 
     def 切換全屏(self):
         self.窗口.toggleFullScreen()

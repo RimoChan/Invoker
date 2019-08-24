@@ -35,9 +35,20 @@
             </a>
         </div>
         <div class="右上">
-            <span id="時"></span>
-            <span>:</span>
-            <span id="分"></span>
+            <div>
+                <i class="fa fa-clock-o"></i>
+                <span id="時"></span>
+                <span>:</span>
+                <span id="分"></span>
+            </div>
+            <div>
+                <i class="fa fa-bar-chart"></i>
+                {{已選長度}}:{{詞典長度}} ({{Math.floor(已選長度/詞典長度*100)}}%)
+            </div>
+            <div>
+                <i class="fa fa-low-vision"></i>
+                {{切表長度}}
+            </div>
         </div>
         <div id="單詞條"></div>
         <div id="選擇條">
