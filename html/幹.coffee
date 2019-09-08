@@ -30,7 +30,7 @@ window.畫面 =
                     <span class='單詞'>#{i.單詞}</span>
                     <span class='詞頻 太陽交換'>
                         <span class='對數'>
-                            #{Math.max(1, Math.floor(Math.log(i.信息.ecdict信息.frq))-4)}
+                            #{Math.floor(Math.log(i.信息.ecdict信息.frq/1024+0.5)/Math.log(2)+2)}
                         </span>
                         <span class='數'>
                             詞頻順序: #{i.信息.ecdict信息.frq}
