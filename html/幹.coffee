@@ -69,10 +69,10 @@ window.畫面 =
         for i in [1..4]
             if i == this.正解位置
                 continue
-            $("#選項.#{i} > div").html(this.當前混淆[j])
+            $("#選項[選項號=#{i}] > div").html(this.當前混淆[j])
             console.log '位置', i, j, this.當前混淆[j]
             j += 1
-        $("#選項.#{this.正解位置} > div").html(this.當前單詞().信息.意思)
+        $("#選項[選項號=#{this.正解位置}] > div").html(this.當前單詞().信息.意思)
     選擇: (x) ->
         if x == this.正解位置
             v.已選長度+=1
@@ -89,7 +89,11 @@ window.畫面 =
         $("#單詞條").removeClass("縮小")
 
 
-$(->
+$ ->
+    $('body').on 'mousedown','#選項', ->
+        選項號 = parseInt($(this).attr('選項號'))
+        畫面.選擇(選項號)
+        
     f = ->
         d = new Date()
         $('#時').html(d.getHours())
@@ -117,4 +121,3 @@ $(->
             v[a]=b
     )
     山彥.初始化()
-)

@@ -51,11 +51,11 @@
         if (i === this.正解位置) {
           continue;
         }
-        $(`#選項.${i} > div`).html(this.當前混淆[j]);
+        $(`#選項[選項號=${i}] > div`).html(this.當前混淆[j]);
         console.log('位置', i, j, this.當前混淆[j]);
         j += 1;
       }
-      return $(`#選項.${this.正解位置} > div`).html(this.當前單詞().信息.意思);
+      return $(`#選項[選項號=${this.正解位置}] > div`).html(this.當前單詞().信息.意思);
     },
     選擇: function(x) {
       if (x === this.正解位置) {
@@ -80,6 +80,11 @@
 
   $(function() {
     var f;
+    $('body').on('mousedown', '#選項', function() {
+      var 選項號;
+      選項號 = parseInt($(this).attr('選項號'));
+      return 畫面.選擇(選項號);
+    });
     f = function() {
       var d;
       d = new Date();

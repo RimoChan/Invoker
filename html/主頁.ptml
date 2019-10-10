@@ -40,15 +40,15 @@ html:
             
         div#單詞條:
         div#選擇條:
-            div.1#選項 onclick='畫面.選擇(1);':
+            div#選項 選項號=1:
                 div:
                     1
-            div.2#選項 onclick='畫面.選擇(2);':
+            div#選項 選項號=2:
                 div:
                     2
-            div.3#選項 onclick='畫面.選擇(3);':
+            div#選項 選項號=3:
                 div:
                     3
-            div.4#選項 onclick='畫面.選擇(4);':
+            div#選項 選項號=4:
                 div:
                     4
