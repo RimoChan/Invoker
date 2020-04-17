@@ -1,0 +1,4 @@
+wxpython>=4.0.4
+cefpython3>=66.0
+numpy>=1.18.2
+mdict-utils>=1.0.8.6
